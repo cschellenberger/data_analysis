@@ -1,56 +1,207 @@
 #Simple Bar Chart 
 
-from matplotlib import pyplot as plt
+  from matplotlib import pyplot as plt
 
-drinks = ["cappuccino", "latte", "chai", "americano", "mocha", "espresso"]
-sales =  [91, 76, 56, 66, 52, 27]
-x_values = range(len(sales))
+  drinks = ["cappuccino", "latte", "chai", "americano", "mocha", "espresso"]
+  sales =  [91, 76, 56, 66, 52, 27]
+  x_values = range(len(sales))
 
-plt.bar(x_values,sales)
-plt.show()
+  plt.bar(x_values,sales)
+  plt.show()
 
 __________________________________________________
 
 #Simple Bar Chart II
 
-from matplotlib import pyplot as plt
+  from matplotlib import pyplot as plt
 
-drinks = ["cappuccino", "latte", "chai", "americano", "mocha", "espresso"]
-sales =  [91, 76, 56, 66, 52, 27]
-plt.bar(range(len(drinks)), sales)
+  drinks = ["cappuccino", "latte", "chai", "americano", "mocha", "espresso"]
+  sales =  [91, 76, 56, 66, 52, 27]
+  plt.bar(range(len(drinks)), sales)
 
-#create your ax object here
-ax=plt.subplot()
-ax.set_xticks([0,1,2,3,4,5])
-ax.set_xticklabels(drinks,rotation=30)
-plt.show()
+  #create your ax object here
+  ax=plt.subplot()
+  ax.set_xticks([0,1,2,3,4,5])
+  ax.set_xticklabels(drinks,rotation=30)
+  plt.show()
 
 __________________________________________________
 
 #Side By Side Bars
 
-from matplotlib import pyplot as plt
+    from matplotlib import pyplot as plt
 
-drinks = ["cappuccino", "latte", "chai", "americano", "mocha", "espresso"]
-sales1 =  [91, 76, 56, 66, 52, 27]
-sales2 = [65, 82, 36, 68, 38, 40]
+    drinks = ["cappuccino", "latte", "chai", "americano", "mocha", "espresso"]
+    sales1 =  [91, 76, 56, 66, 52, 27]
+    sales2 = [65, 82, 36, 68, 38, 40]
 
-#Paste the x_values code here
-n = 1  # This is our first dataset (out of 2)
-t = 2 # Number of datasets
-d = 6 # Number of sets of bars
-w = 0.8 # Width of each bar
-store1_x = [t*element + w*n for element
-             in range(d)]
-plt.bar(store1_x,sales1)
-n = 2  # This is our second dataset (out of 2)
-t = 2 # Number of datasets
-d = 6 # Number of sets of bars
-w = 0.8 # Width of each bar
-store2_x = [t*element + w*n for element
-             in range(d)]
-plt.bar(store2_x,sales2)
-plt.show()
+  #Paste the x_values code here
+    n = 1  # This is our first dataset (out of 2)
+    t = 2 # Number of datasets
+    d = 6 # Number of sets of bars
+    w = 0.8 # Width of each bar
+    store1_x = [t*element + w*n for element
+                 in range(d)]
+    plt.bar(store1_x,sales1)
+    n = 2  # This is our second dataset (out of 2)
+    t = 2 # Number of datasets
+    d = 6 # Number of sets of bars
+    w = 0.8 # Width of each bar
+    store2_x = [t*element + w*n for element
+                 in range(d)]
+    plt.bar(store2_x,sales2)
+    plt.show()
+
+__________________________________________________
+
+#Stacked Bars
+  from matplotlib import pyplot as plt
+
+  drinks = ["cappuccino", "latte", "chai", "americano", "mocha", "espresso"]
+  sales1 =  [91, 76, 56, 66, 52, 27]
+  sales2 = [65, 82, 36, 68, 38, 40]
+  plt.bar(range(len(drinks)),sales1,label='Location 1')
+  plt.bar(range(len(drinks)),sales2,bottom=sales1,label='Location 2')
+  plt.legend()
+
+  plt.show()
+
+__________________________________________________
+
+#Error Bars
+  from matplotlib import pyplot as plt
+
+  drinks = ["cappuccino", "latte", "chai", "americano", "mocha", "espresso"]
+  ounces_of_milk = [6, 9, 4, 0, 9, 0]
+  error = [0.6, 0.9, 0.4, 0, 0.9, 0]
+
+  # Plot the bar graph here
+  plt.bar(range(len(drinks)),ounces_of_milk,yerr=error,capsize=5)
+  plt.show()
+  
+__________________________________________________
+
+#Fill Between
+  from matplotlib import pyplot as plt
+
+  months = range(12)
+  month_names = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+  revenue = [16000, 14000, 17500, 19500, 21500, 21500, 22000, 23000, 20000, 19500, 18000, 16500]
+  y_lower = [i - 0.1 * i for i in revenue]
+  y_upper = [i + 0.1 * i for i in revenue]
+  plt.fill_between(months,y_lower,y_upper,alpha=0.2)
+  #your work here
+  plt.plot(months,revenue)
+  ax = plt.subplot()
+  ax.set_xticks(months)
+  ax.set_xticklabels(month_names)
+  plt.show()
+
+__________________________________________________
+
+#Pie Chart
+  from matplotlib import pyplot as plt
+  import numpy as np
+
+  payment_method_names = ["Card Swipe", "Cash", "Apple Pay", "Other"]
+  payment_method_freqs = [270, 77, 32, 11]
+
+  #make your pie chart here
+  plt.pie(payment_method_freqs)
+  plt.axis('equal')
+  plt.show()
+
+__________________________________________________
+
+#Pie Chart Labeling
+  from matplotlib import pyplot as plt
+
+  payment_method_names = ["Card Swipe", "Cash", "Apple Pay", "Other"]
+  payment_method_freqs = [270, 77, 32, 11]
+
+  plt.pie(payment_method_freqs,autopct='%0.1f%%')
+  plt.axis('equal')
+  plt.legend(payment_method_names)
+
+  plt.show()
+
+__________________________________________________
+
+#Histogram
+#This code will not work outside of Codecademy because it calls on a datafile stored on their servers
+  from matplotlib import pyplot as plt
+  from script import sales_times
+
+  #create the histogram here
+  plt.hist(sales_times,bins=20)
+  plt.show()
+
+__________________________________________________
+
+#Multiple Histograms
+  from matplotlib import pyplot as plt
+  from script import sales_times1
+  from script import sales_times2
+
+  plt.hist(sales_times1, bins=20, alpha=0.4,normed=True)
+  #plot your other histogram here
+  plt.hist(sales_times2,bins=20, alpha=0.4, normed=True)
+  plt.show()
+
+__________________________________________________
+
+#Bar Chart With Errors
+  from matplotlib import pyplot as plt
+
+  past_years_averages = [82, 84, 83, 86, 74, 84, 90]
+  years = [2000, 2001, 2002, 2003, 2004, 2005, 2006]
+  error = [1.5, 2.1, 1.2, 3.2, 2.3, 1.7, 2.4]
+
+  # Make your chart here
+  plt.figure(figsize=(10,8))
+  plt.bar(range(len(past_years_averages)), past_years_averages, yerr = error, capsize=3)
+  plt.axis([-0.5, 6.5, 70, 95])
+
+  ax = plt.subplot()
+  ax.set_xticks(range(len(years)))
+  ax.set_xticklabels(years)
+
+  plt.title('Final Exam Averages')
+  plt.ylabel('Test average')
+  plt.xlabel('Year')
+
+  plt.savefig('my_bar_chart.png')
+
+  plt.show()
+  
+__________________________________________________
+#Side by Side Bars
+  from matplotlib import pyplot as plt
+
+  unit_topics = ['Limits', 'Derivatives', 'Integrals', 'Diff Eq', 'Applications']
+  middle_school_a = [80, 85, 84, 83, 86]
+  middle_school_b = [73, 78, 77, 82, 86]
+
+  def create_x(t, w, n, d):
+      return [t*x + w*n for x in range(d)]
+  school_a_x = create_x(2, 0.8, 1, 5)
+  school_b_x = create_x(2, 0.8, 2, 5)
+  # Make your chart here
+  plt.figure(figsize=(10,8))
+  ax = plt.subplot()  
+  plt.bar(school_a_x, middle_school_a)
+  plt.bar(school_b_x,middle_school_b)
+  middle_x = [ (a + b) / 2.0 for a, b in zip(school_a_x, school_b_x)]
+
+  ax.set_xticks(middle_x)
+  ax.set_xticklabels(unit_topics)
+
+  plt.legend(["Middle School A", "Middle School B"])
+  plt.title('Test Averages on Different Units')
+  plt.ylabel('test average')
+  plt.xlabel('unit')
+  plt.show()
+  plt.savefig('my_side_by_side.png')
 
 __________________________________________________
 
