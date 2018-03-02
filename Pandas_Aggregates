@@ -1,0 +1,45 @@
+#Calculating Column Statistics
+import pandas as pd
+
+orders = pd.read_csv('orders.csv')
+print(orders.head(10))
+most_expensive = orders.price.max()
+num_colors = orders.shoe_color.nunique()
+
+____________________________________________
+
+#Calculating Aggregate Functions I
+#!!!!!!SYNTAX df.groupby('column1').column2.measurement() !!!!!
+import pandas as pd
+
+orders = pd.read_csv('orders.csv')
+pricey_shoes = orders.groupby('shoe_type').price.max()
+print(type(pricey_shoes))
+
+____________________________________________
+
+
+
+____________________________________________
+
+
+
+____________________________________________
+
+
+
+____________________________________________
+
+
+
+____________________________________________
+
+
+
+____________________________________________
+
+
+
+____________________________________________
+
+
