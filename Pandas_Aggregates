@@ -32,19 +32,59 @@ print(type(pricey_shoes))
 ____________________________________________
 
 #Calculating Aggregate Functions III
+#!!!!! Note that the input to our lambda function will always be a list of values. !!!!!
 
+import numpy as np
+import pandas as pd
+
+orders = pd.read_csv('orders.csv')
+cheap_shoes = orders.groupby('shoe_color').price.apply(lambda x: np.percentile(x, 25)).reset_index()
+
+print(cheap_shoes)
 
 ____________________________________________
 
+#Calculating Aggregate Functions IV
+#!!!!!!  Note: When we're using count(), it doesn't really matter which column we perform the calculation on.  !!!!!!
 
+import numpy as np
+import pandas as pd
+
+orders = pd.read_csv('orders.csv')
+
+shoe_counts = orders.groupby(['shoe_type', 'shoe_color']).id.count().reset_index()
+
+print(shoe_counts)
 
 ____________________________________________
 
+#Pivot Tables
+#!!!!! SYNTAX df.pivot(columns='ColumnToPivot', index='ColumnToBeRows', values='ColumnToBeValues') !!!!!
 
+import numpy as np
+import pandas as pd
+
+orders = pd.read_csv('orders.csv')
+
+shoe_counts = orders.groupby(['shoe_type', 'shoe_color']).id.count().reset_index()
+shoe_counts_pivot = shoe_counts.pivot(columns='shoe_color', index='shoe_type', values='id').reset_index()
+print(shoe_counts_pivot)
 
 ____________________________________________
 
+#Review
+import pandas as pd
 
+user_visits = pd.read_csv('page_visits.csv')
+print(user_visits.head())
+click_source = user_visits.groupby('utm_source').id.count()
+#print(click_source)
+
+click_source_by_month = user_visits.groupby(['utm_source', 'month']).id.count().reset_index()
+#print(click_source_by_month)
+
+click_source_by_month_pivot = click_source_by_month.pivot(columns='month', index='utm_source', values='id').reset_index()
+print(click_source_by_month_pivot)
 
 ____________________________________________
 
