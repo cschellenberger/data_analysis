@@ -69,23 +69,93 @@ print large_set_median
 
 ____________________________________-
 
+#Mean vs. Median
+import numpy as np
 
+time_spent = np.genfromtxt('file.csv', delimiter=',')
+np.sort(time_spent)
+print time_spent
+minutes_mean = np.mean(time_spent)
+minutes_median = np.median(time_spent)
+print minutes_mean
+print minutes_median
+
+best_measure = minutes_median
 
 ____________________________________-
 
+#Percentiles, Part I
+#we can calculate percentiles using the function np.percentile, which takes two arguments: the array and the percentile to calculate.
+#!!!!!!SYNTAX d = np.array([1, 2, 3, 4, 4, 4, 6, 6, 7,  8, 8])
+  >>> np.percentile(d, 40) !!!!!!
+  
+import numpy as np
 
+patrons = np.array([ 2, 6, 14, 4, 3, 9, 1, 11, 4, 2, 8])
+np.sort(patrons)
+thirtieth_percentile = np.percentile(patrons,30)
+seventieth_percentile = np.percentile(patrons,70)
+print thirtieth_percentile
+print seventieth_percentile
 
 ____________________________________-
 
+#Percentiles, Part II
+#The 25th percentile is called the first quartile  &  The 50th percentile is called the median  &  The 75th percentile is called the third quartile
+#The minimum, first quartile, median, third quartile, and maximum of a dataset are called a five-number summary
+#The difference between the first and third quartile is a value called the interquartile range
 
+import numpy as np
+
+movies_watched = np.array([2, 3, 8, 0, 2, 4, 3, 1, 1, 0, 5, 1, 1, 7, 2])
+
+first_quarter = np.percentile(movies_watched, 25)
+third_quarter = np.percentile(movies_watched, 75)
+interquartile_range = third_quarter - first_quarter
+print interquartile_range
+____________________________________-
+
+#NumPy and Standard Deviation, Part II
+#The larger the standard deviation, the more spread out our data is from the center. The smaller the standard deviation, the more the data is clustered around the mean.
+#!!!!!SYNTAX  nums = np.array([65, 36, 52, 91, 63, 79])
+  >>> np.std(nums)
+import numpy as np
+
+pumpkin = np.array([68, 1820, 1420, 2062, 704, 1156, 1857, 1755, 2092, 1384])
+
+acorn_squash = np.array([20, 43, 99, 200, 12, 250, 58, 120, 230, 215])
+
+pumpkin_avg = np.mean(pumpkin)
+acorn_squash_avg = np.mean(acorn_squash)
+
+pumpkin_std = np.std(pumpkin)
+acorn_squash_std = np.std(acorn_squash)
+
+print pumpkin_std
+print acorn_squash_std
+
+winner = pumpkin
 
 ____________________________________-
 
+#Review
+import numpy as np
 
+rainfall = np.array([5.21, 3.76, 3.27, 2.35, 1.89, 1.55, 0.65, 1.06, 1.72, 3.35, 4.82, 5.11])
 
-____________________________________-
+rain_mean = np.mean(rainfall)
+rain_median = np.median(rainfall)
+first_quarter = np.percentile(rainfall, 25)
+third_quarter = np.percentile(rainfall, 75)
+interquartile_range = third_quarter - first_quarter
+rain_std = np.std(rainfall)
 
-
+print rain_mean
+print rain_median
+print first_quarter
+print third_quarter
+print interquartile_range
+print rain_std
 
 ____________________________________-
 
