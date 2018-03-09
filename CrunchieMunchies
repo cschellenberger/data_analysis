@@ -1,0 +1,21 @@
+#CrunchieMunchies
+
+import codecademylib
+import numpy as np
+calorie_stats = np.genfromtxt('cereal.csv', delimiter=',')
+cal_mean = np.mean(calorie_stats)
+average_calories = cal_mean - 60
+print cal_mean
+print average_calories
+calorie_stats_sorted = np.sort(calorie_stats)
+print calorie_stats_sorted
+median_calories = np.median(calorie_stats)
+print median_calories
+print np.percentile(calorie_stats, 4)
+nth_percentile = 4
+more_calories = np.mean(calorie_stats > 60)
+print more_calories
+calorie_std = np.std(calorie_stats)
+print calorie_std
+print(len(calorie_stats))
+#There are significant variations in the health of the cereals available to you. 96% of 77 surveyed cereals had higher calorie counts than CrunchieMunchies. CrunchieMunchies may produce weightlose with regular exercise and a hightened sense of wellbeing. Munch on this Crunch and start living the life you want!
