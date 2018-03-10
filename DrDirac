@@ -1,0 +1,14 @@
+#Given that a student answered a question correctly, what is the probability that she really knows the material?
+
+import numpy as np
+a = 'student_knows_answer'
+b = 'correct_test_answer'
+probabilty_knows_material = 0.6
+correct_given_knows = 0.85
+#Correct regardless = the probably that you are correct given not knowing * 
+  the probably you don't know + 
+  the probably that you are correct given knowing * 
+  the probability you know
+correct_regardless = 0.85 * 0.6 + 0.2 * (1 - 0.6)
+knows_given_correct = correct_given_knows * probabilty_knows_material / correct_regardless
+print knows_given_correct
