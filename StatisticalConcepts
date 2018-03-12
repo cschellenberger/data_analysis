@@ -1,0 +1,322 @@
+import spypy
+from scipy.stats import ttest_1samp
+
+millennial_times = spypy.get_site_times_for_demographic('millennial')
+t_stat, p_val = ttest_1samp(millennial_times, 7)
+
+if p_val < .05:
+    print "The Millennials are engaged!"
+else:
+    print "The Millennials are not engaged :(!"
+    
+_+_
+
+from scipy.stats import ttest_ind
+
+warmer_weather_picture_count = spypy.get_number_pictures_for_climate('hot')
+colder_weather_picture_count = spypy.get_number_pictures_for_climate('cold')
+
+t_stat, p_val = ttest_ind(warmer_weather_picture_count, colder_weather_picture_count)
+
+if p_val < .05:
+    print "People from colder climates post a different number of pictures compared to people from warmer climates"
+else:
+    print "Climate doesn't appear to affect the number of pictures posted"
+    
+_+_
+
+from scipy.stats import binom_test
+
+number_of_trials = 8000000
+expected_successes = 2000000
+actual_successes = 1997893
+expected_success_rate = float(expected_successes) / float(number_of_trials)
+
+p_val = binom_test(actual_successes, n=number_of_trials, p=expected_success_rate)
+if p_val < 0.05:
+    print "We didn't hit our target by a significant amount"
+else:
+    print "We just missed our target by a very small amount!"
+    
+_+_
+
+_____________________________________________
+
+#Sample Mean and Population Mean
+#A sample is a subset of the entire population. 
+  The mean of each sample is the sample mean and it is an estimate of the population mean.
+
+import numpy as np
+
+population = np.random.normal(loc=65, scale=3.5, size=300)
+population_mean = np.mean(population)
+
+print "Population Mean: {}".format(population_mean)
+
+sample_1 = np.random.choice(population, size=30, replace=False)
+sample_2 = np.random.choice(population, size=30, replace=False)
+sample_3 = np.random.choice(population, size=30, replace=False)
+sample_4 = np.random.choice(population, size=30, replace=False)
+sample_5 = np.random.choice(population, size=30, replace=False)
+
+sample_1_mean = np.mean(sample_1)
+print "Sample 1 Mean: {}".format(sample_1_mean)
+
+sample_2_mean = np.mean(sample_2)
+print "Sample 2 Mean: {}".format(sample_2_mean)
+sample_3_mean = np.mean(sample_3)
+print "Sample 3 Mean: {}".format(sample_3_mean)
+sample_4_mean = np.mean(sample_4)
+print "Sample 4 Mean: {}".format(sample_4_mean)
+sample_5_mean = np.mean(sample_5)
+print "Sample 5 Mean: {}".format(sample_5_mean)
+
+print "Sample 2 Mean: {}".format(sample_2_mean)
+print "Sample 3 Mean: {}".format(sample_3_mean)
+print "Sample 4 Mean: {}".format(sample_4_mean)
+print "Sample 5 Mean: {}".format(sample_5_mean)
+
+
+_____________________________________________
+
+#Central Limit Theorem
+#the Central Limit Theorem, states that if we have a large enough sample size,
+  all of our sample means will be sufficiently close to the population mean.
+import numpy as np
+
+# Create population and find population mean
+population = np.random.normal(loc=65, scale=100, size=3000)
+population_mean = np.mean(population)
+
+# Select increasingly larger samples
+extra_small_sample = population[:10]
+small_sample = population[:50]
+medium_sample = population[:100]
+large_sample = population[:500]
+extra_large_sample = population[:1000]
+
+# Calculate the mean of those samples
+extra_small_sample_mean = np.mean(extra_small_sample)
+small_sample_mean = np.mean(small_sample)
+medium_sample_mean = np.mean(medium_sample)
+large_sample_mean = np.mean(large_sample)
+extra_large_sample_mean = np.mean(extra_large_sample)
+
+# Print them all out!
+print "Extra Small Sample Mean: {}".format(extra_small_sample_mean)
+print "Small Sample Mean: {}".format(small_sample_mean)
+print "Medium Sample Mean: {}".format(medium_sample_mean)
+print "Large Sample Mean: {}".format(large_sample_mean)
+print "Extra Large Sample Mean: {}".format(extra_large_sample_mean)
+
+print "\nPopulation Mean: {}".format(population_mean)
+
+_____________________________________________
+
+#Hypothesis Tests
+#A null hypothesis is a statement that the observed difference is the result of chance.
+
+_____________________________________________
+
+#Type I Or Type II
+#Type I error, is finding a correlation between things that are not related.
+#Type II error, is failing to find a correlation between things that are actually related.
+import numpy as np
+
+def intersect(list1, list2):
+  return [sample for sample in list1 if sample in list2]
+
+# the true positives and negatives:
+actual_positive = [2, 5, 6, 7, 8, 10, 18, 21, 24, 25, 29, 30, 32, 33, 38, 39, 42, 44, 45, 47]
+actual_negative = [1, 3, 4, 9, 11, 12, 13, 14, 15, 16, 17, 19, 20, 22, 23, 26, 27, 28, 31, 34, 35, 36, 37, 40, 41, 43, 46, 48, 49]
+
+# the positives and negatives we determine by running the experiment:
+experimental_positive = [2, 4, 5, 7, 8, 9, 10, 11, 13, 15, 16, 17, 18, 19, 20, 21, 22, 24, 26, 27, 28, 32, 35, 36, 38, 39, 40, 45, 46, 49]
+experimental_negative = [1, 3, 6, 12, 14, 23, 25, 29, 30, 31, 33, 34, 37, 41, 42, 43, 44, 47, 48]
+
+#define type_i_errors and type_ii_errors here
+type_i_errors = intersect(experimental_positive, actual_negative)
+type_ii_errors = intersect(experimental_negative, actual_positive)
+
+_____________________________________________
+
+#P-Values
+#A p-value is the probability that the null hypothesis is true.
+def accept_null_hypothesis(p_value):
+  """Returns the truthiness of the null_hypothesis
+
+  Takes a p-value as it's input and assumes p > 0.05 is significant
+  """
+  return p_value > 0.05
+
+hypothesis_tests = [0.1, 0.009, 0.051, 0.012, 0.37, 0.6, 0.11, 0.025, 0.0499, 0.0001]
+
+for p_value in hypothesis_tests:
+    accept_null_hypothesis(p_value)
+
+_____________________________________________
+
+#Numerical Hypothesis Tests:
+One Sample T-Tests
+Two Sample T-Tests
+ANOVA
+Tukey Tests
+
+#Categorical Hypothesis Tests:
+Binomial Tests
+Chi Square
+
+_____________________________________________
+
+#1 Sample T-Testing
+#univariate T-test
+#A univariate T-test compares a sample mean to a hypothetical population mean.
+#a null hypothesis, which is a prediction that there is no significant difference. 
+#The result of the 1 Sample T Test is a p-value
+#!!!!!SYNTAX  tstat, pval = ttest_1samp(example_distribution, expected_mean)
+print pval  !!!!!
+
+from scipy.stats import ttest_1samp
+import numpy as np
+
+ages = np.genfromtxt("ages.csv")
+print ages
+ages_mean = np.mean(ages)
+print ages_mean
+
+tstat, pval = ttest_1samp(ages, 30)
+print pval
+#With a p value of 56% we have to accept the null hypthesis
+
+_____________________________________________
+
+#One Sample T-Test II
+from scipy.stats import ttest_1samp
+import numpy as np
+
+correct_results = 0 # Start the counter at 0
+
+daily_visitors = np.genfromtxt("daily_visitors.csv", delimiter=",")
+
+for i in range(1000): # 1000 experiments
+   #your ttest here:
+   t, pval = ttest_1samp(daily_visitors[i], 30) # perform t-test
+   if pval < 0.05: # check our p-value
+       correct_results += 1
+    #print the pvalue here:
+   print pval
+print "We correctly recognized that the distribution was different in " + str(correct_results) + " out of 1000 experiments."
+
+_____________________________________________
+
+#2 Sample T-Test
+#A 2 Sample T-Test compares two sets of data, which are both approximately normally distributed.
+#The null hypothesis, in this case, is that the two distributions have the same mean.
+from scipy.stats import ttest_ind
+import numpy as np
+
+week1 = np.genfromtxt("week1.csv",  delimiter=",")
+week2 = np.genfromtxt("week2.csv",  delimiter=",")
+week1_mean = np.mean(week1)
+week2_mean = np.mean(week2)
+print week1_mean
+print week2_mean
+week1_std = np.std(week1)
+week2_std = np.std(week2)
+print week1_std
+print week2_std
+
+t, pval = ttest_ind(week1, week2)
+print pval
+
+#With a drastically low pvalue we reget the null hypothesis and conclude that these means are significantly different.
+
+_____________________________________________
+
+#Dangers of Multiple T-Tests
+#The more t-tests we perform, the more likely that we are to get a false positive, a Type I error.
+from scipy.stats import ttest_ind
+import numpy as np
+
+a = np.genfromtxt("store_a.csv",  delimiter=",")
+b = np.genfromtxt("store_b.csv",  delimiter=",")
+c = np.genfromtxt("store_c.csv",  delimiter=",")
+a_mean = np.mean(a)
+b_mean = np.mean(b)
+c_mean = np.mean(c)
+
+a_std = np.std(a)
+b_std = np.std(b)
+c_std = np.std(c)
+
+print a_mean
+print a_std
+
+print b_mean
+print b_std
+
+print c_mean
+print c_std
+
+t, a_b_pval = ttest_ind(a,b)
+t, a_c_pval = ttest_ind(a,c)
+t, b_c_pval = ttest_ind(b,c)
+print a_b_pval
+print a_c_pval
+print b_c_pval
+
+error_prob = 1 - 0.95**3
+print error_prob
+#There is a 14.2% chance that we will have a type I error and reget the null hypothesis.
+
+_____________________________________________
+
+#ANOVA
+#the best way to preserve a Type I error probability of 0.05 is to use ANOVA (Analysis of Variance).
+#!!!!!SYNTAX  fstat, pval = f_oneway(scores_mathematicians, scores_writers, scores_psychologists)  !!!!!
+from scipy.stats import ttest_ind
+from scipy.stats import f_oneway
+import numpy as np
+
+a = np.genfromtxt("store_a.csv",  delimiter=",")
+b = np.genfromtxt("store_b_new.csv",  delimiter=",")
+c = np.genfromtxt("store_c.csv",  delimiter=",")
+t, pval = f_oneway(a,b,c)
+print pval
+#reget the null hypothesis
+
+#With new data we can reget the null hypothesis with extreme confidence. One sample mean is significantly different.
+
+_____________________________________________
+
+#Assumptions of Numerical Hypothesis Tests
+#THE SAMPLES SHOULD EACH BE NORMALLY DISTRIBUTED...ISH
+#THE POPULATION STANDARD DEVIATIONS OF THE GROUPS SHOULD BE EQUAL
+   "Close enough" may differ in different contexts but generally staying within 10% should suffice.
+ #THE SAMPLES MUST BE INDEPENDENT
+import codecademylib
+import numpy as np
+import matplotlib.pyplot as plt
+
+dist_1 = np.genfromtxt("1.csv",  delimiter=",")
+dist_2 = np.genfromtxt("2.csv",  delimiter=",")
+dist_3 = np.genfromtxt("3.csv",  delimiter=",")
+dist_4 = np.genfromtxt("4.csv",  delimiter=",")
+
+#plot your histogram here
+#plt.hist(dist_1)
+#plt.hist(dist_2)
+#plt.hist(dist_3)
+plt.hist(dist_4)
+plt.show()
+
+not_normal = 4
+#4 should not be used in an ANOVA test. It is clearly bimodal.
+
+ratio = (np.std(dist_2)) / (np.std(dist_3))
+print ratio
+#the ratio of 58% is not great enough to perform a numerical hypothesis test.
+
+_____________________________________________
+
+
