@@ -319,4 +319,58 @@ print ratio
 
 _____________________________________________
 
+#Tukey's Range Test
+from statsmodels.stats.multicomp import pairwise_tukeyhsd
+from scipy.stats import f_oneway
+import numpy as np
 
+a = np.genfromtxt("store_a.csv",  delimiter=",")
+b = np.genfromtxt("store_b.csv",  delimiter=",")
+c = np.genfromtxt("store_c.csv",  delimiter=",")
+
+stat, pval = f_oneway(a, b, c)
+print pval
+
+# Using our data from ANOVA, we create v and l
+v = np.concatenate([a, b, c])
+labels = ['a'] * len(a) + ['b'] * len(b) + ['c'] * len(c)
+
+tukey_results = pairwise_tukeyhsd(v, labels, 0.05)
+
+print tukey_results
+#Only a and c are significantly different
+
+____________________________________________
+
+#Binomial Test
+#The null hypothesis, in this case, would be that there is no difference between the observed behavior and the expected behavior.
+#binom_test requires three inputs, the number of observed successes, the number of total trials, and an expected probability of success. 
+
+from scipy.stats import binom_test
+pval = binom_test(510, n=10000, p=0.06)
+print pval
+#a significant difference between the expected and the actual
+pval2 = binom_test(590, n=10000, p=0.06)
+print pval2
+#68.9% certainty that there is no difference between the expected and the actual
+
+____________________________________________
+
+#Chi Square Test
+#If we have two or more categorical datasets that we want to compare, we should use a Chi Square test.
+#In this case, the null hypothesis is that there's no significant difference between the datasets.
+from scipy.stats import chi2_contingency
+
+# Contingency table
+#         harvester |  leaf cutter
+# ----+------------------+------------
+# 1st gr | 30       |  10
+# 2nd gr | 35       |  5
+# 3rd gr | 28       |  12
+
+X = [[30, 10],
+     [35, 5],
+     [28, 12],
+     [20, 20]]
+chi2, pval, dof, expected = chi2_contingency(X)
+print pval
