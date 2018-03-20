@@ -14,3 +14,36 @@ WHERE subscriptions.description = 'Fashion Magazine';
 #####
 
 #When we perform a simple JOIN (often called an inner join) our result only includes rows that match our ON condition.
+SELECT count(*) FROM newspaper;
+/*60 is the count*/
+SELECT count(*) FROM online;
+/*65 is the count*/
+SELECT count(*)
+FROM newspaper
+JOIN online
+	ON newspaper.id = online.id;
+/*50 is the count because of the inner join and missing indexes
+
+#####
+
+/*A left join will keep all rows from the first table, regardless of whether there is a matching row in the second table.*/
+SELECT *
+FROM newspaper
+LEFT JOIN online
+ON newspaper.id = online.id;
+
+SELECT *
+FROM newspaper
+LEFT JOIN online
+ON newspaper.id = online.id
+WHERE online.id IS NULL;
+
+#####
+/*Primary Key vs Foreign Key*/
+SELECT *
+FROM classes
+JOIN students
+ON classes.id = students.class_id;
+
+#####
+
