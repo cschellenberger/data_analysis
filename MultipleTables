@@ -1,0 +1,16 @@
+-- First query
+SELECT *
+FROM orders
+JOIN subscriptions
+	ON orders.subscription_id = subscriptions.subscription_id;
+
+-- Second query
+SELECT *
+FROM orders
+JOIN subscriptions
+	ON orders.subscription_id = subscriptions.subscription_id
+WHERE subscriptions.description = 'Fashion Magazine';
+
+#####
+
+#When we perform a simple JOIN (often called an inner join) our result only includes rows that match our ON condition.
