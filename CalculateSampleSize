@@ -1,0 +1,43 @@
+SELECT *
+FROM users
+LIMIT 5;
+
+SELECT *
+FROM referrals
+LIMIT 5;
+
+SELECT *
+FROM scoopons
+LIMIT 5;
+
+/**/
+
+SELECT COUNT(*) / 2 FROM referrals;
+
+/**/
+
+SELECT 1.0 * COUNT(referrals.referrer_id) / COUNT(users.id)
+FROM users
+LEFT JOIN referrals
+	ON users.id = referrals.referrer_id;
+  
+/**/
+
+SELECT COUNT(*) FROM referrals;
+
+SELECT 1.0 * COUNT(scoopons.purchased_at) / COUNT(DISTINCT scoopons.user_id)
+FROM scoopons;	
+
+/**/
+
+import numpy as np
+
+sample_size = 2100
+
+weeks_of_experiment = 4200. / 4170
+
+print weeks_of_experiment
+
+#Baseline Conversion Rate - 10%
+#Minimum Detectable Effect - 27%
+#Statistical Significance - 90% (this is the standard significance that we use for A/B Test)
