@@ -29,3 +29,12 @@ Code has been pasted here so that it will operate within the Codecademy environm
 #### SciPy Excersises:
 - [Fetch Maker](https://github.com/cschellenberger/data_analysis/blob/master/FetchMaker)
 - [Familiar Project](https://github.com/cschellenberger/data_analysis/blob/master/FamiliarProject)
+### SQL Introduction
+1. [SQL Basics]()
+2. [SQL Commands]()
+3. [SQL Aggregate]()
+4. [SQL Multiple Tables]()
+5. [Calculating Sample Size]()
+#### SQL Excersises
+- [Startups Trends]()
+- [REBU]()
