@@ -16,10 +16,11 @@ Code has been pasted here so that it will operate within the Codecademy environm
 - [Crunchie Munchies](https://github.com/cschellenberger/data_analysis/blob/master/CrunchieMunchies)
 - [Betty's Bakery](https://github.com/cschellenberger/data_analysis/blob/master/BettysBakery)
 ### Pandas Data Manipulation Introduction
-1. [Dataframes]()
-2. [Aggregates]()
-3. [Multiple Tables]()
+1. [Dataframes](https://github.com/cschellenberger/data_analysis/blob/master/Pandas_DataFrames)
+2. [Aggregates](https://github.com/cschellenberger/data_analysis/blob/master/Pandas_Aggregates)
+3. [Multiple Tables](https://github.com/cschellenberger/data_analysis/blob/master/MultipleTables)
 #### Pandas Exercises:
-- [AB Testing for ShowFly]()
-- [Page Visits Funnel]()
-- [Petal Power]()
+- [AB Testing for ShowFly](https://github.com/cschellenberger/data_analysis/blob/master/ABTestingForShoeFly)
+- [Page Visits Funnel](https://github.com/cschellenberger/data_analysis/blob/master/PageVisitsFunnel)
+- [Petal Power](https://github.com/cschellenberger/data_analysis/blob/master/Petal_Power)
+
