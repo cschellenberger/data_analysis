@@ -4,6 +4,9 @@ This is a repository of python, data analysis resources
 Code has been pasted here so that it will operate within the Codecademy environment and a console environment running python with anaconda (matplotlib, pandas, numpy) installed.
 ### Data Visualization Introduction
 [Learn MatPlotLib](https://github.com/cschellenberger/data_analysis/blob/master/learn_matplotlib)
+[Plot Types Activities]()
+#### MatPlotLib Exercises
+- [Sublime Limes Line Graph]()
 ### Numerical Python Introduction with Numpy
 [NumPy Introduction](https://github.com/cschellenberger/data_analysis/blob/master/NumpyIntro)
 [NumPyStats](https://github.com/cschellenberger/data_analysis/blob/master/NumpyStats)
