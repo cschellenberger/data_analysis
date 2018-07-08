@@ -1,5 +1,5 @@
-# data_analysis
-This is a repository of python, data analysis resources
+# Introduction to Data Analysis Codecademy Notes 2018
+This is a repo of python and data analysis resources
 
 Code has been pasted here so that it will operate within the Codecademy environment and a console environment running python with anaconda (matplotlib, pandas, numpy) installed.
 ### Data Visualization Introduction
