@@ -1,0 +1,139 @@
+#NumPy Arrays
+#!!!!!SYNTAX  my_array = np.array([1, 2, 3, 4, 5, 6])  !!!!!
+#!!!!!SYNTAX  my_list = [1, 2, 3, 4, 5, 6]
+my_array = np.array(my_list)  !!!!!
+
+import numpy as np
+test_1 = np.array([92, 94, 88, 91, 87])
+
+_______________________________________________
+
+#Creating an Array from a CSV
+#!!!!!SYNTAX  csv_array = np.genfromtxt('sample.csv', delimiter=',')  !!!!!
+import numpy as np
+
+test_1 = np.array([92, 94, 88, 91, 87])
+test_2 = np.genfromtxt('test_2.csv', delimiter=',')
+
+_______________________________________________
+
+#Operations with NumPy Arrays
+# With a list
+l = [1, 2, 3, 4, 5]
+l_plus_3 = []
+for i in range(len(l)):
+    l_plus_3.append(l[i] + 3)
+    
+# With an array
+a = np.array(l)
+a_plus_3 = a + 3
+
+#!!!!!!SYNTAX  np.sqrt(a)  a ** 2  a + 3  !!!!!
+
+import numpy as np
+
+test_1 = np.array([92, 94, 88, 91, 87])
+test_2 = np.array([79, 100, 86, 93, 91])
+test_3 = np.array([87, 85, 72, 90, 92])
+
+test_3_fixed = test_3 + 2
+
+_______________________________________________
+
+#Operations with NumPy Arrays II
+import numpy as np
+
+test_1 = np.array([92, 94, 88, 91, 87])
+test_2 = np.array([79, 100, 86, 93, 91])
+test_3 = np.array([87, 85, 72, 90, 92])
+test_3_fixed = test_3 + 2
+
+total_grade = test_1 + test_2 + test_3_fixed
+final_grade = total_grade / 3
+print final_grade
+
+_______________________________________________
+
+#Two-Dimensional Arrays
+#If the arrays that make up our bigger array are all the same size, then it has a special name: a two-dimensional array.
+import numpy as np
+coin_toss = np.array([1, 0, 0, 1, 0])
+coin_toss_again = np.array([[1, 0, 0, 1, 0], [0, 0, 1, 1, 1]])
+
+_______________________________________________
+
+#Selecting Elements from a 1-D Array
+#This is known as zero-indexed numbering
+#count from opposite end of the array and start at -1
+import numpy as np
+
+test_1 = np.array([92, 94, 88, 91, 87])
+test_2 = np.array([79, 100, 86, 93, 91])
+test_3 = np.array([87, 85, 72, 90, 92])
+
+jeremy_test_2 = test_2[3]
+manual_adwoa_test_1 = test_1[1:3]
+_______________________________________________
+
+#Selecting Elements from a 2-D Array
+#!!!!!SYNTAX  The syntax for selecting from a 2-d array is a[row,column] where a is the array. !!!!!
+import numpy as np
+
+student_scores = np.array([[92, 94, 88, 91, 87],
+                           [79, 100, 86, 93, 91],
+                           [87, 85, 72, 90, 92]])
+
+tanya_test_3 = student_scores[2,0]
+cody_test_scores = student_scores[:,4]
+
+_______________________________________________
+
+#Logical Operations with Arrays
+#we place each statement in parentheses and use boolean operators like & (and) and | (or).
+#!!!!!SYNTAX  a[(a > 5) | (a < 2)]  !!!!!!
+import numpy as np
+
+porridge = np.array([79, 65, 50, 63, 56, 90, 85, 98, 79, 51])
+
+cold = porridge[porridge < 60]
+hot = porridge[porridge > 80]
+just_right = porridge[(porridge < 80) & (porridge > 60)]
+print cold
+print hot
+print just_right
+
+_______________________________________________
+
+#Review
+import numpy as np
+temperatures = np.genfromtxt('temperature_data.csv', delimiter=',')
+print temperatures
+temperatures_fixed = temperatures + 3.0
+print temperatures_fixed
+monday_temperatures = temperatures_fixed[0,:]
+thursday_friday_morning = temperatures_fixed[3:,1]
+temperature_extremes = temperatures_fixed[(temperatures_fixed < 50) | (temperatures_fixed > 60)]
+
+_______________________________________________
+
+
+
+_______________________________________________
+
+
+
+_______________________________________________
+
+
+
+_______________________________________________
+
+
+
+_______________________________________________
+
+
+
+_______________________________________________
+
+

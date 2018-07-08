@@ -1,0 +1,192 @@
+#Histograms, Part III
+import codecademylib
+import numpy as np
+# Write matplotlib import here:
+from matplotlib import pyplot as plt
+commutes = np.genfromtxt('commutes.csv', delimiter=',')
+
+# Plot histogram here:
+plt.hist(commutes, bins=6, range=(20,51))
+plt.show()
+
+______________________________________
+
+#Different Types of Distributions, Part I
+#A unimodal dataset has only one distinct peak.
+#A bimodal dataset has two distinct peaks.
+#A multimodal dataset has more than two peaks.
+#A uniform dataset doesn't have any distinct peaks.
+
+______________________________________
+
+#Different Types of Distribution, Part II
+#A symmetric dataset has equal amounts of data on both sides of the peak.
+#A skew-right dataset has a long tail on the right of the peak,
+#A skew-left dataset has a long tail on the left of the peak, but most of the data is on the right.
+
+
+______________________________________
+
+#Normal Distribution, Part II
+#np.random.normal. This function takes the following keyword arguments:
+#loc: the mean for the normal distribution
+#scale: the standard deviation of the distribution
+#size: the number of random numbers to generate
+#!!!!!SYNTAX  a = np.random.normal(0, 1, size=100000)  !!!!!
+
+import codecademylib
+import numpy as np
+from matplotlib import pyplot as plt
+
+# Brachiosaurus
+b_data = np.random.normal(6.7, 0.7, size=1000)
+
+# Fictionosaurus
+f_data = np.random.normal(7.7, 0.3, size=1000)
+
+plt.hist(b_data,
+         bins=30, range=(5, 8.5), histtype='step',
+         label='Brachiosaurus')
+plt.hist(f_data,
+         bins=30, range=(5, 8.5), histtype='step',
+         label='Fictionosaurus')
+plt.xlabel('Femur Length (ft)')
+plt.legend(loc=2)
+plt.show()
+
+mystery_dino = 'Brachiosaurus'
+answer = False
+
+______________________________________
+
+#Standard Deviations and Normal Distribution, Part I
+#no matter what mean and standard deviation we choose, 
+  68% of our samples will fall between +/- 1 standard deviation of the mean!
+#68% of our samples will fall between +/- 1 standard deviation of the mean
+#95% of our samples will fall between +/- 2 standard deviations of the mean
+#99.7% of our samples will fall between +/- 3 standard deviations of the mean
+
+______________________________________
+
+#Standard Deviations and Normal Distribution, Part II
+import numpy as np
+
+one_above = 1000 + 100
+one_below = 1000 - 100
+print one_above
+print one_below
+one_std = 2000 * 0.68
+
+______________________________________
+
+#Binomial Distribution, Part I
+#The binomial distribution is important because it allows us to know how likely a certain outcome is, 
+  even when it's not the expected one.
+
+______________________________________
+
+#Binomial Distributions, Part II
+#np.random.binomial, which we can use to determine the probability of different outcomes.
+#It takes the following arguments:
+#N: The number of samples or trials
+#P: The probability of success
+#size: The number of experiments
+
+#Example
+a = np.random.binomial(10, 0.30, size=10000)
+
+plt.hist(a, range=(0, 10), bins=10, normed=True)
+plt.xlabel('Number of "Free Throws"')
+plt.ylabel('Frequency')
+plt.show()
+
+#Exercise
+import codecademylib
+import numpy as np
+from matplotlib import pyplot as plt
+
+emails = np.random.binomial(500, 0.05, size=10000)
+plt.hist(emails)
+plt.show()
+
+______________________________________
+
+#Binomial Distributions and Probability
+import numpy as np
+
+emails = np.random.binomial(500, 0.05, size=10000)
+
+no_emails = np.mean(emails == 0)
+
+b_test_emails = np.mean(emails >= 40)
+
+print no_emails
+print b_test_emails
+
+______________________________________
+
+#Review
+import codecademylib
+import numpy as np
+from matplotlib import pyplot as plt
+
+sunflowers = np.genfromtxt('sunflower_heights.csv',
+                           delimiter=',')
+
+# Calculate mean and std of sunflowers here:
+sunflowers_mean = np.mean(sunflowers)
+sunflowers_std = np.std(sunflowers)
+print sunflowers_mean
+print sunflowers_std
+
+# Calculate sunflowers_normal here:
+sunflowers_normal = np.random.normal(sunflowers_mean, sunflowers_std, size=5000)
+
+plt.hist(sunflowers,
+         range=(11, 15), histtype='step', linewidth=2,
+        label='observed', normed=True)
+plt.hist(sunflowers_normal,
+         range=(11, 15), histtype='step', linewidth=2,
+        label='normal', normed=True)
+plt.legend()
+plt.show()
+
+# Calculate probabilities here:
+experiments = np.random.binomial(200, 0.10, size=5000)
+prob = np.mean(experiments < 20)
+
+print prob
+#It is likely that fewer than 20 sunflowers will fail to bloom because the frequency that fewer than 20 sunflowers will not bloom is about 46%. 
+         Therefore, roughly half the time we plant 200 sunflowers, less than 20 will not bloom.
+
+______________________________________
+
+
+
+______________________________________
+
+
+
+______________________________________
+
+
+
+______________________________________
+
+
+
+______________________________________
+
+
+
+______________________________________
+
+
+
+______________________________________
+
+
+
+______________________________________
+
+
