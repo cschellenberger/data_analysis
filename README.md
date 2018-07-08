@@ -30,11 +30,14 @@ Code has been pasted here so that it will operate within the Codecademy environm
 - [Fetch Maker](https://github.com/cschellenberger/data_analysis/blob/master/FetchMaker)
 - [Familiar Project](https://github.com/cschellenberger/data_analysis/blob/master/FamiliarProject)
 ### SQL Introduction
-1. [SQL Basics]()
-2. [SQL Commands]()
-3. [SQL Aggregate]()
-4. [SQL Multiple Tables]()
-5. [Calculating Sample Size]()
+1. [SQL Basics](https://github.com/cschellenberger/data_analysis/blob/master/SQLbasics)
+2. [SQL Commands](https://github.com/cschellenberger/data_analysis/blob/master/SQLcommands)
+3. [SQL Aggregate](https://github.com/cschellenberger/data_analysis/blob/master/SQLaggregate)
+4. [SQL Multiple Tables](https://github.com/cschellenberger/data_analysis/blob/master/MultipleTables-SQL)
+5. [Calculating Sample Size](https://github.com/cschellenberger/data_analysis/blob/master/CalculateSampleSize)
 #### SQL Excersises
-- [Startups Trends]()
-- [REBU]()
+- [Startups Trends](https://github.com/cschellenberger/data_analysis/blob/master/StartupsTrends)
+- [REBU](https://github.com/cschellenberger/data_analysis/blob/master/REBU)
+
+# Conclusion
+The culminating capstone project for this course was a guided [coding excersise](https://github.com/cschellenberger/BiodiversityCapstone) and [slidedeck presentation](https://drive.google.com/open?id=1wrEbCuvoPF1XaqRpHQOBrc-UmCeZAYlninkS28xnpxE).
