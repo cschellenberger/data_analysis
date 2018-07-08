@@ -24,8 +24,8 @@ Code has been pasted here so that it will operate within the Codecademy environm
 - [Page Visits Funnel](https://github.com/cschellenberger/data_analysis/blob/master/PageVisitsFunnel)
 - [Petal Power](https://github.com/cschellenberger/data_analysis/blob/master/Petal_Power)
 ### SciPy Introduction
-1. [Statistical Concepts]()
-2. [Sample Size Determination]()
+1. [Statistical Concepts](https://github.com/cschellenberger/data_analysis/blob/master/StatisticalConcepts)
+2. [Sample Size Determination](https://github.com/cschellenberger/data_analysis/blob/master/SampSizeDeterm)
 #### SciPy Excersises:
-- [Fetch Maker]()
-- [Familiar Project]()
+- [Fetch Maker](https://github.com/cschellenberger/data_analysis/blob/master/FetchMaker)
+- [Familiar Project](https://github.com/cschellenberger/data_analysis/blob/master/FamiliarProject)
