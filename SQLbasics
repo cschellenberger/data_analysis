@@ -1,0 +1,118 @@
+SELECT name AS 'Cody'
+FROM movies;
+
+________________________________
+
+SELECT DISTINCT year
+
+FROM movies;
+
+
+________________________________
+
+
+SELECT * 
+FROM movies 
+WHERE year > 2014;
+
+
+________________________________
+
+
+SELECT * 
+FROM movies
+WHERE name LIKE 'Se_en';
+
+
+________________________________
+
+
+SELECT * 
+FROM movies
+WHERE name LIKE 'The %';
+
+
+________________________________
+
+
+SELECT name
+FROM movies 
+WHERE imdb_rating IS NULL;
+
+
+
+________________________________
+BETWEEN two letters is not inclusive of the 2nd letter.
+BETWEEN two numbers is inclusive of the 2nd number.
+
+
+SELECT *
+FROM movies
+WHERE year BETWEEN 1970 AND 1979;
+
+
+________________________________
+
+SELECT *
+FROM movies
+WHERE year < 1985
+   AND genre = 'horror';
+   
+   
+
+________________________________
+
+
+SELECT name, year, imdb_rating
+FROM movies
+ORDER BY imdb_rating DESC;
+
+   
+   
+
+________________________________
+
+
+select * from movies order by imdb_rating desc limit 3;
+
+
+________________________________
+
+
+SELECT name,
+ CASE
+  WHEN genre = 'romance' THEN 'fun'
+  WHEN genre = 'comedy' THEN 'fun'
+  ELSE 'serious'
+ END AS 'mood'
+FROM movies;
+
+________________________________
+
+
+Let's summarize:
+
+SELECT is the clause we use every time we want to query information from a database.
+AS renames a column or table.
+DISTINCT return unique values.
+WHERE is a popular command that lets you filter the results of the query based on conditions that you specify.
+LIKE and BETWEEN are special operators.
+AND and OR combines multiple conditions.
+ORDER BY sorts the result.
+LIMIT specifies the maximum number of rows that the query will return.
+CASE creates different outputs.
+
+
+________________________________
+
+
+
+
+________________________________
+
+
+
+
+________________________________
+
+

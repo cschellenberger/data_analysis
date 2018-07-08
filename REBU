@@ -1,0 +1,44 @@
+SELECT * FROM trips;
+
+SELECT * FROM riders;
+
+SELECT * FROM cars;
+
+/*SELECT * FROM riders JOIN cars;*/
+
+SELECT * FROM trips LEFT JOIN riders ON trips.rider_id = riders.id;
+/*SELECT trips.date, 
+   trips.pickup, 
+   trips.dropoff, 
+   trips.type, 
+   trips.cost,
+   riders.first, 
+   riders.last,
+   riders.username
+FROM trips
+LEFT JOIN riders 
+  ON trips.rider_id = riders.id;*/  
+
+SELECT * FROM trips INNER JOIN cars ON trips.car_id = cars.id;
+
+SELECT * FROM riders UNION SELECT * FROM riders2;
+
+SELECT AVG(cost)
+FROM trips;
+/*The average cost is $31.91*/
+
+SELECT * FROM riders WHERE total_trips < 500;
+/*SELECT *
+FROM riders
+WHERE total_trips < 500
+UNION
+SELECT *
+FROM riders2
+WHERE total_trips < 500;*/
+
+SELECT COUNT(*) FROM cars WHERE cars.status = 'active';
+
+SELECT *
+FROM cars
+ORDER BY trips_completed DESC
+LIMIT 2;

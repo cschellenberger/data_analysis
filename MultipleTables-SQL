@@ -1,0 +1,102 @@
+-- First query
+SELECT *
+FROM orders
+JOIN subscriptions
+	ON orders.subscription_id = subscriptions.subscription_id;
+
+-- Second query
+SELECT *
+FROM orders
+JOIN subscriptions
+	ON orders.subscription_id = subscriptions.subscription_id
+WHERE subscriptions.description = 'Fashion Magazine';
+
+#####
+
+#When we perform a simple JOIN (often called an inner join) our result only includes rows that match our ON condition.
+SELECT count(*) FROM newspaper;
+/*60 is the count*/
+SELECT count(*) FROM online;
+/*65 is the count*/
+SELECT count(*)
+FROM newspaper
+JOIN online
+	ON newspaper.id = online.id;
+/*50 is the count because of the inner join and missing indexes
+
+#####
+
+/*A left join will keep all rows from the first table, regardless of whether there is a matching row in the second table.*/
+SELECT *
+FROM newspaper
+LEFT JOIN online
+ON newspaper.id = online.id;
+
+SELECT *
+FROM newspaper
+LEFT JOIN online
+ON newspaper.id = online.id
+WHERE online.id IS NULL;
+
+#####
+/*Primary Key vs Foreign Key*/
+SELECT *
+FROM classes
+JOIN students
+ON classes.id = students.class_id;
+
+#####
+
+SELECT COUNT(*)
+FROM newspaper
+WHERE start_month < 3 AND end_month > 3;
+
+SELECT *
+FROM newspaper
+CROSS JOIN months;
+
+SELECT *
+FROM newspaper
+CROSS JOIN months
+WHERE month > start_month AND month < end_month;
+
+SELECT month,
+  COUNT(*) as subscribers
+FROM newspaper
+CROSS JOIN months
+WHERE month > start_month AND month < end_month
+GROUP BY month;
+
+
+#####
+
+SELECT * FROM newspaper UNION SELECT * FROM online;
+
+#####
+
+WITH previous_query AS (
+SELECT customer_id,
+       COUNT(subscription_id) as subscriptions
+FROM orders
+GROUP BY customer_id)
+SELECT customers.customer_name,
+previous_query.subscriptions
+FROM previous_query
+JOIN customers
+	ON customers.customer_id = previous_query.customer_id;
+
+#####
+
+JOIN will combine rows from different tables if the join condition is true.
+
+LEFT JOIN will return every row in the left table, and if the join condition is not met, NULL values are used to fill in the columns from the right table.
+
+Primary key is a column that serves a unique identifier for the rows in the table.
+
+Foreign key is a column that contains the primary key to another table.
+
+CROSS JOIN lets us combine all rows of one table with all rows of another table
+
+UNION stacks one dataset on top of another.
+
+WITH allows us to define a bunch of temporary tables that can be used in the final query.
