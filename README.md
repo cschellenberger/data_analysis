@@ -23,4 +23,9 @@ Code has been pasted here so that it will operate within the Codecademy environm
 - [AB Testing for ShowFly](https://github.com/cschellenberger/data_analysis/blob/master/ABTestingForShoeFly)
 - [Page Visits Funnel](https://github.com/cschellenberger/data_analysis/blob/master/PageVisitsFunnel)
 - [Petal Power](https://github.com/cschellenberger/data_analysis/blob/master/Petal_Power)
-
+### SciPy Introduction
+1. [Statistical Concepts]()
+2. [Sample Size Determination]()
+#### SciPy Excersises:
+- [Fetch Maker]()
+- [Familiar Project]()
