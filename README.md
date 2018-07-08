@@ -44,3 +44,6 @@ Code has been pasted here so that it will operate within the Codecademy environm
 
 # Conclusion
 The culminating capstone project for this course was a guided [coding excersise](https://github.com/cschellenberger/BiodiversityCapstone) and [slidedeck presentation](https://drive.google.com/open?id=1wrEbCuvoPF1XaqRpHQOBrc-UmCeZAYlninkS28xnpxE).
+
+*Next Steps:*
+- [ ] move majority of resources to Jupyter Notebooks with comments
