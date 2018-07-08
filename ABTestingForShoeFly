@@ -1,0 +1,40 @@
+import pandas as pd
+
+ad_clicks = pd.read_csv('ad_clicks.csv')
+#print(ad_clicks.head())
+
+number_clicks = ad_clicks.groupby('utm_source').user_id.count().reset_index()
+#print(number_clicks)
+
+is_clicked = lambda x: True if x > 0 else False
+ad_clicks['is_click'] = ad_clicks.ad_click_timestamp.apply(is_clicked)
+#print(ad_clicks.head())
+
+clicks_by_source = ad_clicks.groupby(['utm_source', 'is_click']).user_id.count().reset_index()
+#print(clicks_by_source)
+
+clicks_pivot = clicks_by_source.pivot(columns='is_click', index='utm_source', values='user_id').reset_index()
+#print(clicks_pivot)
+
+clicks_pivot['percent_clicked'] = clicks_pivot[True] / (clicks_pivot[True] + clicks_pivot[False])
+#print(clicks_pivot)
+
+viewership = ad_clicks.groupby(['experimental_group', 'is_click']).user_id.count().reset_index()
+#print(viewership)
+
+a_clicks = ad_clicks[ad_clicks.experimental_group == 'A']
+b_clicks = ad_clicks[ad_clicks.experimental_group == 'B']
+
+group_clicka = a_clicks.groupby(['is_click', 'day']).user_id.count().reset_index()
+group_clicka_pivot = group_clicka.pivot(columns='is_click', index='day', values='user_id').reset_index()
+#print(group_click_pivot)
+group_clicka_pivot['percent_clicked'] = group_clicka_pivot[True] / (group_clicka_pivot[True] + group_clicka_pivot[False])
+print(group_clicka_pivot)
+
+group_clickb = b_clicks.groupby(['is_click', 'day']).user_id.count().reset_index()
+group_clickb_pivot = group_clickb.pivot(columns='is_click', index='day', values='user_id').reset_index()
+#print(group_click_pivot)
+group_clickb_pivot['percent_clicked'] = group_clickb_pivot[True] / (group_clickb_pivot[True] + group_clickb_pivot[False])
+print(group_clickb_pivot)
+
+#I recommend the company go with ad A as there was only one day where B outperformed A
