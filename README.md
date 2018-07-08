@@ -38,6 +38,9 @@ Code has been pasted here so that it will operate within the Codecademy environm
 #### SQL Excersises
 - [Startups Trends](https://github.com/cschellenberger/data_analysis/blob/master/StartupsTrends)
 - [REBU](https://github.com/cschellenberger/data_analysis/blob/master/REBU)
+### Optional Bayes Theorum Introduction
+1. [Bayes Theorum](https://github.com/cschellenberger/data_analysis/blob/master/BayesTheorum)
+2. [Dr. Dirac](https://github.com/cschellenberger/data_analysis/blob/master/DrDirac)
 
 # Conclusion
 The culminating capstone project for this course was a guided [coding excersise](https://github.com/cschellenberger/BiodiversityCapstone) and [slidedeck presentation](https://drive.google.com/open?id=1wrEbCuvoPF1XaqRpHQOBrc-UmCeZAYlninkS28xnpxE).
