@@ -1,0 +1,77 @@
+#A/B Testing: Using a Calculator
+#An A/B Test is a scientific method of choosing between two options (Option A and Option B)
+#for an A/B test, a sample size calculator requires three numbers:
+#Baseline conversion rate
+#Minimum detectable effect
+#Statistical significance
+
+______________________
+
+#A/B Testing: Understanding the Baseline
+#Generally, our metric will be the percent of users who take a certain action after interacting with one of our options.
+#Our initial estimate of our metric is called a baseline.
+#We can usually calculate a baseline by looking at historical data for the option that we’re currently using.
+
+__________________________
+
+#A/B Testing: Determining Lift
+#we need to know the smallest difference that we actually care to measure. This “smallest difference” is called lift.
+#Lift is generally expressed as a percent of the baseline conversion rate.
+
+lift_eight_percent_to_twelve_percent = 100 * (12 - 8) / 8
+
+ten_percent_up_fifty_percent = 10.0 + 5
+
+__________________________
+
+#A/B Testing: Don't Interfere With Your Tests
+#By arbitrarily extending the study until it reaches significance, we fool ourselves!
+
+__________________________
+
+#A/B Testing: Splitting a Test
+hamster_headline_experiment_length = (910 / (350 * 0.20))
+
+___________________________
+
+#Sample Size Calculator for Margin of Error
+#Margin of Error
+#What does it mean to have “enough” people for a survey?
+#Population Size
+#So, for experiments like this, we use the highest population size we can. 
+#Normally, 100,000 will suffice, as changes become negligible beyond that.
+#Likely Sample Proportion
+#This guess could be based upon the results from a previous survey, or perhaps the results of a small pilot study before the real study.
+#If we do not have historical data, we normally use 50%, which gives the most conservative (i.e., largest required) sample size.
+
+#Confidence Level
+#We normally use a confidence level of 95%.
+
+____________________________________
+
+#Sample Size of a Survey
+import math
+
+margin_of_error = 4
+confidence_level = 95
+likely_proportion = 40
+population_size = 100000
+
+sample_size = 573
+
+#sample_size/120, rounded up:
+#weeks_of_survey = 5
+weeks_of_survey = math.ceil(sample_size/120.0)
+print weeks_of_survey
+
+________________________________________
+
+#Differing Survey Results
+# Baseline conversion rate: 35%
+# Statistical significance: 85%
+# Minimum detectable effect: 40%
+band_battle_sample_size = 170
+
+______________________________________
+
+
